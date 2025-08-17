@@ -14,8 +14,10 @@ const Header = () => {
               </Button>
             </Link>
             <div className="flex flex-col">
-              <h1 className="text-xl font-semibold">Employee Management</h1>
-              <span className="text-sm text-neutral-500">
+              <h1 className="text:lg font-semibold sm:text-xl">
+                Employee Management
+              </h1>
+              <span className="text-xs text-neutral-500 sm:text-sm">
                 Manage your team efficiently
               </span>
             </div>
