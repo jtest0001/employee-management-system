@@ -2,6 +2,7 @@ import EmployeeTable from "@/components/EmployeeTable/EmployeeTable";
 import FetchErrorCard from "@/components/FetchErrorCard";
 import { Card } from "@/components/ui/card";
 import { useGetEmployees } from "@/hooks/useEmployees";
+import * as motion from "motion/react-client";
 
 const Home = () => {
   const { data: employees, isLoading, isError, refetch } = useGetEmployees();
@@ -10,7 +11,11 @@ const Home = () => {
   if (isError) return <FetchErrorCard handleRefetch={() => refetch()} />;
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="h-full"
+    >
       <Card className="relative h-full overflow-hidden rounded-md border py-0">
         {employees && employees.length > 0 ? (
           <div className="flex h-full flex-col">
@@ -29,7 +34,7 @@ const Home = () => {
           </div>
         )}
       </Card>
-    </>
+    </motion.div>
   );
 };
 
