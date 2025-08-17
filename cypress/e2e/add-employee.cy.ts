@@ -38,7 +38,7 @@ describe("Add employee spec", () => {
   });
 
   it("Successfully added employee", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
 
@@ -49,7 +49,7 @@ describe("Add employee spec", () => {
   });
 
   it("Navigates to other route when user confirms unsaved changes dialog", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
 
@@ -59,11 +59,11 @@ describe("Add employee spec", () => {
       "Form has been modified. You will lose your unsaved changes. Are you sure you want to close this form?",
     );
     cy.contains("button", "Yes").click();
-    cy.location("pathname").should("eq", "/"); // just the path
+    cy.location("pathname").should("eq", "/");
   });
 
   it("Stays in add employee form when user rejects unsaved changes dialog", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
 
@@ -73,7 +73,7 @@ describe("Add employee spec", () => {
       "Form has been modified. You will lose your unsaved changes. Are you sure you want to close this form?",
     );
     cy.contains("button", "No").click();
-    cy.location("pathname").should("eq", "/add-employee"); // just the path
+    cy.location("hash").should("eq", "#/add-employee");
   });
 
   it("Failed to add employee", () => {
@@ -81,7 +81,7 @@ describe("Add employee spec", () => {
       statusCode: 500,
     }).as("addEmployee");
 
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
 

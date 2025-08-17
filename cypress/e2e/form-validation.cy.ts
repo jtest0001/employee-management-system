@@ -25,12 +25,12 @@ const fillUpForm = () => {
 
 describe("Form validation spec", () => {
   it("Blocks form submission if form is empty", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
     cy.contains("button", "Submit").should("be.disabled");
   });
 
   it("Shows validation logic for first name", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
     cy.contains("label", "First Name")
@@ -53,7 +53,7 @@ describe("Form validation spec", () => {
   });
 
   it("Shows validation logic for last name", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
     cy.contains("label", "Last Name")
@@ -76,7 +76,7 @@ describe("Form validation spec", () => {
   });
 
   it("Shows validation logic for email", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
     cy.contains("label", "Email").parent().find("input").clear();
@@ -86,7 +86,7 @@ describe("Form validation spec", () => {
   });
 
   it("Shows validation logic for Phone Number", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     fillUpForm();
     cy.contains("label", "Phone Number")
@@ -100,7 +100,7 @@ describe("Form validation spec", () => {
   });
 
   it("Shows validation logic for Gender", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     cy.contains("label", "First Name").parent().find("input").type("Anthony");
 
@@ -109,7 +109,7 @@ describe("Form validation spec", () => {
   });
 
   it("Shows validation logic for date pickers", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
 
     cy.contains("label", "First Name").parent().find("input").type("Anthony");
 

@@ -51,27 +51,27 @@ describe("Navigation spec", () => {
   });
 
   it("Successfully navigates to home page when app logo is clicked", () => {
-    cy.visit("/add-employee");
+    cy.visit("#/add-employee");
     cy.get("[data-testid=app-logo]").click();
-    cy.location("pathname").should("eq", "/"); // just the path
+    cy.location("pathname").should("eq", "/");
   });
 
   it("Successfully navigates to add employee page when add employee button is clicked", () => {
     cy.visit("/");
     cy.wait("@getEmployees");
     cy.contains("button", "Add Employee").click();
-    cy.location("pathname").should("eq", "/add-employee"); // just the path
+    cy.location("hash").should("eq", "#/add-employee");
   });
 
   it("Successfully navigates to edit employee page when add employee button is clicked", () => {
     cy.visit("/");
     cy.wait("@getEmployees");
     cy.get("[data-testid=edit-15]").click();
-    cy.location("pathname").should("eq", "/employee/edit/15"); // just the path
+    cy.location("hash").should("eq", "#/employee/edit/15");
   });
 
   it("Successfully renders not found page when user navigate to unexpected route", () => {
-    cy.visit("/unexpected-route");
+    cy.visit("#/unexpected-route");
     cy.contains("404");
     cy.contains("Page Not Found");
     cy.contains(

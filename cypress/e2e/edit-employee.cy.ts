@@ -84,7 +84,7 @@ describe("Edit employee spec", () => {
       "Form has been modified. You will lose your unsaved changes. Are you sure you want to close this form?",
     );
     cy.contains("button", "No").click();
-    cy.location("pathname").should("eq", "/employee/edit/17"); // just the path
+    cy.location("hash").should("eq", "#/employee/edit/17"); // just the path
   });
 
   it("Failed to update employee", () => {

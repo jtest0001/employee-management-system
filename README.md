@@ -87,4 +87,11 @@ The output will be in the `dist/` directory.
 - Used Vite for fast development experience and optimized builds.
 - TypeScript was selected for improved maintainability and developer experience.
 - Cypress was integrated for reliable E2E testing.
+- Used HashRouter for routing so our SPA can handle client-side routes safely without needing the server to know about them as we are deploying this application in a static host
 - Public mock api provider
+
+**Hash Router Routes**
+
+- https://jtest0001.github.io/employee-management-system/ -- HomePage
+- https://jtest0001.github.io/employee-management-system/#/add-employee -- AddEmployeePage
+- https://jtest0001.github.io/employee-management-system/#/employee/edit/:employeeId -- EmployeeEditPage
